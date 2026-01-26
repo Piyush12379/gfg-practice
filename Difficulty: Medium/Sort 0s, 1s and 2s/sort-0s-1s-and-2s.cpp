@@ -1,38 +1,26 @@
 class Solution {
   public:
     void sort012(vector<int>& arr) {
+       int n=arr.size();
         // code here
-        int n=arr.size();
-        int countzero=0;
-        int countone=0;
-        int counttwo=0;
-        
-        for(int i=0;i<n;i++){
-            if(arr[i]==0) countzero++;
-            else if(arr[i]==1)countone++;
-            else counttwo++;
+        int low=0;
+        int mid=0;
+        int high=n-1;
+        while(mid<=high){
+            if(arr[mid]==0){
+                swap(arr[mid],arr[low]);
+                mid++;
+                low++;
+            }
+            else if(arr[mid]==1){
+                mid++;
+            }
+            else{
+                swap(arr[mid],arr[high]);
+                high--;
+            }
         }
+    
         
-        int k=0;
-        
-        while(countzero>0){ 
-        arr[k]=0;
-        k++;
-        countzero--;
-        }
-        
-        
-         while(countone>0){ 
-        arr[k]=1;
-        k++;
-        countone--;
-        }
-        
-        
-         while(counttwo>0){ 
-        arr[k]=2;
-        k++;
-        counttwo--;
-        }
     }
 };
