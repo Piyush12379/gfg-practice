@@ -1,0 +1,34 @@
+/*
+class Node {
+public:
+    int data;
+    Node *next;
+
+    Node(int x) {
+        data = x;
+        next = NULL;
+    }
+};
+*/
+
+class Solution {
+  public:
+    int cycleStart(Node* head) {
+        // code here
+        Node* slow=head;
+        Node* fast=head;
+        while(fast!=NULL && fast->next!=NULL){
+            slow=slow->next;
+            fast=fast->next->next;
+            if(slow==fast){
+                Node* temp=head;
+                while(temp!=slow){
+                    slow=slow->next;
+                    temp=temp->next;
+                }
+                return slow->data;
+            }
+        }
+        return -1;
+    }
+};
