@@ -2,7 +2,7 @@ class Solution {
   public:
     int maxSumSubarray(vector<int>& arr) {
         // Code here
-        int deleteone=arr[0];
+        int deleteone=0;
         int nodelete=arr[0];
         int n=arr.size();
         int ans=arr[0];
