@@ -1,0 +1,19 @@
+//Back-end complete function Template for C++
+
+class Solution {
+  public:
+    int minCostClimbingStairs(vector<int>& cost) {
+        // Write your code here
+        int n=cost.size();
+        if(n==0) return 0;
+        
+        vector<int>dp(n+1,-1);
+        dp[n]=0;
+        dp[n-1]=cost[n-1];
+        
+        for(int i=n-2;i>=0;i--){
+            dp[i]=cost[i]+min(dp[i+1],dp[i+2]);
+        }
+        return min(dp[0],dp[1]);
+    }
+};
